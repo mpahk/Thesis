@@ -1,0 +1,43 @@
+﻿@model List<Web.Models.Error>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Lõputöö</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <style>
+        #container {
+            border-left:1px solid #808080;
+            border-right:1px solid #808080;
+            border-bottom:1px solid #808080;
+            padding-top:50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container" class="container">
+        <div id="title"></div>
+    </div>
+    <script>
+        
+            var veateated = @Html.Raw(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+        
+    </script>
+    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/main.js"></script>
+    <script src="~/Scripts/ilustaja.js"></script>
+    <script src="~/Scripts/pealkiri.js"></script>
+    <script>
+        loputoo.abistaja.conf.laadimisPildiUrl = "/Content/loading.gif";
+        loputoo.tabel.conf.url = "/api/ThesisAPI/GetPeople";
+        loputoo.pealkiri.conf.url = "/api/ThesisAPI/Title64";
+        loputoo.pealkiri.conf.base64TeekUrl = "/Scripts/jquery.base64.min.js";
+        loputoo.veateateNupp.conf.url= "/Scripts/veateated.js";
+        
+    </script>
+</body>
+</html>
