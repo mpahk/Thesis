@@ -1,5 +1,5 @@
 ﻿$(function () {
-    loputoo.tabel.looTabel();
+    LOPUTOO.tabel.looTabel();
 });
 
 (function (tees) {
@@ -94,12 +94,12 @@
             nupp.id = "errorNaitaNupp";
             pohi.appendChild(nupp);
 
-            $.getScript(loputoo.veateateNupp.conf.url, function () {
+            $.getScript(LOPUTOO.veateateNupp.conf.url, function () {
                 $("#" + nupp.id).click(function () {
-                    loputoo.veateade.kuvaTavaVeateade();
+                    LOPUTOO.veateade.kuvaTavaVeateade();
                 });
             });
         };
     })(tees.veateateNupp = tees.veateateNupp || {});
 
-})(window.loputoo = window.loputoo || {});
+})(window.LOPUTOO = window.LOPUTOO || {});

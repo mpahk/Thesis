@@ -1,6 +1,6 @@
 ﻿$(function () {
-    loputoo.abistaja.aareJooned();
-    loputoo.abistaja.joonestaMuutusePeale();
+    LOPUTOO.abistaja.aareJooned();
+    LOPUTOO.abistaja.joonestaMuutusePeale();
 });
 
 (function (tees) {
@@ -15,4 +15,4 @@
             });
         };
     })(tees.abistaja = tees.abistaja || {});
-})(window.loputoo = window.loputoo || {});
+})(window.LOPUTOO = window.LOPUTOO || {});

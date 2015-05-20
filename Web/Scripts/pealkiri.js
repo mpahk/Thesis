@@ -1,6 +1,6 @@
 ﻿$(function () {
-    $.getScript(loputoo.pealkiri.conf.base64TeekUrl, function () {
-        loputoo.pealkiri.kuva();
+    $.getScript(LOPUTOO.pealkiri.conf.base64TeekUrl, function () {
+        LOPUTOO.pealkiri.kuva();
     });
 });
 
@@ -23,4 +23,4 @@
         };
 
     })(tees.pealkiri = tees.pealkiri || {});
-})(window.loputoo = window.loputoo || {});
+})(window.LOPUTOO = window.LOPUTOO || {});

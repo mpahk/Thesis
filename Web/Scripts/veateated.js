@@ -1,5 +1,6 @@
 ﻿(function (tees) {
     (function (viga) {
+        var pariNimi, asendaLingid, hajutaVeateade;
         viga.conf = { url: "/api/ThesisAPI/GetUserName" };
         viga.tagastaVeateade = function (id) {
             var i;
@@ -10,7 +11,7 @@
             }
             return "";
         };
-        var pariNimi = function () {
+        pariNimi = function () {
             var def = $.Deferred();
             $.ajax({
                 method: "GET",
@@ -23,7 +24,7 @@
             return def.promise();
         };
 
-        var asendaLingid = function (teade) {
+        asendaLingid = function (teade) {
             var i, j, nimekiri = [], puhver, tarkA, tarkB, re;
             for (i = 0; i < teade.length; i++) {
                 tarkA = teade.charAt(i);
@@ -73,6 +74,12 @@
             $("#veateade").remove();
         };
 
+        hajutaVeateade = function () {
+            $("#veateade").fadeOut(2000, function () {
+                viga.peidaTavaVeateade();
+            });
+        };
+
         viga.kuvaTavaVeateade = function () {
             var veateade, peaKonteiner, konteiner;
 
@@ -82,19 +89,15 @@
 
             $.when(viga.tootleVeateade(viga.tagastaVeateade("E001")))
                 .done(function (teade) {
-                    konteiner = loputoo.abistaja.looElement({ sone: teade, tuup: "p" })
+                    konteiner = LOPUTOO.abistaja.looElement({ sone: teade, tuup: "p" })
                     peaKonteiner = document.getElementById("title");
                     konteiner.className = "label label-danger";
                     konteiner.id = "veateade";
                     peaKonteiner.appendChild(konteiner);
 
-                    setTimeout(function () {
-                        $("#veateade").fadeOut(2000,function () {
-                            viga.peidaTavaVeateade();
-                        });
-                    }, 2000);
+                    setTimeout(hajutaVeateade, 2000);
                 });
         };
 
     })(tees.veateade = tees.veateade || {});
-})(window.loputoo = window.loputoo || {});
+})(window.LOPUTOO = window.LOPUTOO || {});
